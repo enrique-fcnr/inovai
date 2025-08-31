@@ -1,0 +1,207 @@
+body {
+    font-family: 'Inter', sans-serif;
+    color: #E2E8F0;
+    /* Novo background com gradiente radial em tons de azul e escuros */
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(10, 13, 24, 1) 70%);
+}
+.btn-shadow {
+    box-shadow: 0 4px 14px rgba(76, 81, 191, 0.4);
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Estilos personalizados para efeitos de hover e seções */
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(76, 81, 191, 0.2);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 150px 40px rgba(147, 51, 234, 1); /* Sombreado de brilho mais chamativo */
+}
+.bg-gradient-button {
+    background-image: linear-gradient(to right, #4F46E5, #9333EA);
+    transition: all 0.3s ease;
+}
+.bg-gradient-button:hover {
+    background-image: linear-gradient(to right, #9333EA, #4F46E5);
+    box-shadow: 0 4px 14px rgba(147, 51, 234, 0.6);
+}
+.bg-gradient-to-bottom {
+    background-image: linear-gradient(to bottom, transparent, #0A0D18);
+}
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+.logo-scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+.logo-scroll {
+    display: inline-block;
+    animation: scroll-left 20s linear infinite;
+}
+.logo-scroll-container:hover .logo-scroll {
+    animation-play-state: paused;
+}
+.logo-scroll-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.fade-left, .fade-right {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 10%;
+    pointer-events: none;
+    z-index: 2;
+}
+.fade-left {
+    left: 0;
+    background: linear-gradient(to right, #0A0D18, rgba(10, 13, 24, 0));
+}
+.fade-right {
+    right: 0;
+    background: linear-gradient(to left, #0A0D18, rgba(10, 13, 24, 0));
+}
+/* Gradiente ajustado para uma transição suave entre as seções */
+.bg-section-gradient {
+    background-image: linear-gradient(to bottom, #0A0D18 0%, #3A358A 50%, #0A0D18 100%);
+}
+.navbar-scrolled {
+    background-color: rgba(11, 11, 13, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+.background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10; /* Abaixo de todo o conteúdo */
+}
+
+/* Estilo para os blocos de serviços com gradiente e hover */
+.service-card {
+    background-color: #1a1a2b; /* Fundo base para o gradiente */
+    position: relative;
+    z-index: 1;
+}
+.service-card:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #4c51bf, #6b46c1, #3a358a, #4c51bf);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.service-card:hover:before {
+    opacity: 1;
+}
+
+/* Estilos para o processo de roadmap */
+.process-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+    overflow-x: auto; /* Adiciona scroll horizontal se necessário */
+}
+.process-item {
+    position: relative;
+    flex: 1 1 auto; /* Não cresce, mas se adapta */
+    height: 120px; /* Altura fixa reduzida */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+.process-item-content {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(to right, #111827, #1A202C);
+    border: 2px solid transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+}
+.process-item-content:hover {
+    border-color: #9333EA;
+}
+
+/* Animação e estilo do gradiente para os ícones */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-icon-gradient {
+    background: linear-gradient(90deg, #4F46E5, #9333EA, #4F46E5);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 5s ease infinite;
+}
+
+/* Animação e estilo do gradiente para a seta */
+@keyframes pulse-arrow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.arrow-animated {
+    background: linear-gradient(90deg, #4F46E5, #9333EA, #4F46E5);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse-arrow 2s ease-in-out infinite, gradient-shift 5s ease infinite;
+}
+.arrow-animated:hover {
+    animation-play-state: paused; /* Pausa o pulso no hover */
+    background-image: linear-gradient(to right, #9333EA, #4F46E5); /* Inverte o gradiente */
+}
+
+
+/* Seção de destaque com fundo de gradiente para as métricas */
+.metrics-number {
+    font-size: 4rem; /* Tamanho maior para destaque */
+    line-height: 1;
+    font-weight: 700;
+    color: white;
+}
+.metrics-text {
+    font-size: 0.9rem; /* Tamanho menor para a frase */
+}
+.bg-stars {
+    background-color: #0A0D18;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+.pulsing-stars-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
