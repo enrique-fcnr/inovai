@@ -2,7 +2,7 @@
     --grad-start: #8e31c4; /* Roxo Vibrante */
     --grad-mid: #e3437c;   /* Rosa Avermelhado */
     --grad-end: #fddc30;   /* Amarelo Dourado */
-    --background-color: #121212;
+    --background-color: #000000; /* Fundo preto sólido */
     --surface-color: #1E1E1E;
     --text-color: #EAEAEA;
     --text-muted: #A0A0A0;
@@ -39,6 +39,18 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 
 /* --- Header --- */
 .header {
@@ -58,9 +70,28 @@ body {
     align-items: center;
 }
 
+/* EFEITO DE HOVER NA LOGO */
+.logo-link {
+    position: relative;
+    display: inline-block;
+    height: 50px;
+}
 .logo {
     height: 50px;
     width: auto;
+    transition: opacity 0.4s ease-in-out;
+}
+.logo-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.logo-link:hover .logo-white {
+    opacity: 0;
+}
+.logo-link:hover .logo-color {
+    opacity: 1;
 }
 
 .nav-menu {
@@ -111,81 +142,91 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (ATUALIZADO) --- */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
     padding-top: 80px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Garante que o brilho não saia da seção */
 }
 
-#particle-canvas {
+/* Efeito de luz adicionado */
+.hero::after {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    bottom: -25%;
+    right: -30%;
+    width: 70vw;
+    height: 70vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.295) 0%, transparent 60%);
     z-index: 1;
+    pointer-events: none;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo fique sobre o brilho */
+}
+
+.hero-image {
+    width: 100%;
+    min-height: 450px;
+    background: var(--surface-color) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="10px" fill="%23444">IMAGEM 3D</text></svg>') center/contain no-repeat;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+   text-align: left;
 }
 
-.hero-content h1 {
+.hero-content h2 {
     font-size: 3.5rem;
     margin-bottom: 20px;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
+    font-size: 1.1rem;
+    max-width: 450px;
+    margin: 0 0 30px 0;
     color: var(--text-muted);
 }
 
-.btn-primary {
+.btn-secondary {
     display: inline-block;
-    padding: 15px 30px;
-    background-image: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end));
-    color: #fff;
+    padding: 13px 35px;
+    border: 2px solid var(--text-muted);
+    color: var(--text-color);
     text-decoration: none;
     font-weight: 600;
     border-radius: 50px;
-    transition: transform 0.3s, box-shadow 0.3s, background-position 0.4s;
-    border: none;
-    cursor: pointer;
-    background-size: 200% auto;
+    transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(227, 67, 124, 0.4), 0 5px 15px rgba(253, 220, 48, 0.3);
-    background-position: right center;
+.btn-secondary:hover {
+    background-color: var(--text-muted);
+    color: var(--background-color);
+    border-color: var(--text-muted);
 }
-
-.hero-shape {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background: var(--background-color);
-    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 80%);
-    z-index: 2;
-}
-
 
 /* --- Services Section --- */
 .services {
     padding: 100px 0 50px 0;
     text-align: center;
+    background-color: #121212; /* Cor de fundo para transição suave */
 }
 
 .services h2 {
@@ -254,6 +295,7 @@ body {
 /* --- Stats Section --- */
 .stats {
     padding: 50px 0;
+    background-color: #121212;
 }
 
 .stats .container {
@@ -284,7 +326,7 @@ body {
     font-weight: 600;
 }
 
-/* --- About Section --- */
+/* --- About Section (ATUALIZADO) --- */
 .about {
     padding: 100px 0;
 }
@@ -301,19 +343,15 @@ body {
     margin-bottom: 20px;
 }
 
-.about-image img {
+.about-image {
     width: 100%;
-    height: auto;
-    border-radius: 30px;
-    transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
-    box-shadow: -20px 20px 40px rgba(0,0,0,0.5);
-    transition: transform 0.4s ease-in-out;
+    min-height: 400px;
+    background: var(--surface-color) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="10px" fill="%23444">IMAGEM LÂMPADA</text></svg>') center/contain no-repeat;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.about-image img:hover {
-    transform: perspective(1000px) rotateY(0) rotateX(0);
-}
-
 
 /* --- Testimonials Section --- */
 .testimonials {
@@ -457,12 +495,23 @@ body {
         transform: translateY(-8px) rotate(-45deg);
     }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-    
+    .hero-image {
+        order: -1; /* Imagem vai para cima no mobile */
+        margin-bottom: 40px;
+        min-height: 300px;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-content h2 {
+        font-size: 2.8rem;
+    }
     .hero-content p {
-        font-size: 1rem;
+        margin: 0 auto 30px;
     }
 
     .stats .container {
@@ -472,11 +521,13 @@ body {
     
     .about-content {
         grid-template-columns: 1fr;
+        text-align: center;
     }
     
     .about-image {
         order: -1;
         margin-bottom: 30px;
+        min-height: 300px;
     }
     
     .testimonial-cards {
