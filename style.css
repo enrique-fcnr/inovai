@@ -162,7 +162,7 @@ body {
     height: 70vw;
     max-width: 800px;
     max-height: 800px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.295) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(226, 54, 2, 0.493) 0%, transparent 60%);
     z-index: 1;
     pointer-events: none;
 }
@@ -180,7 +180,6 @@ body {
 .hero-image {
     width: 100%;
     min-height: 450px;
-    background: var(--surface-color) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="10px" fill="%23444">IMAGEM 3D</text></svg>') center/contain no-repeat;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -346,7 +345,6 @@ body {
 .about-image {
     width: 100%;
     min-height: 400px;
-    background: var(--surface-color) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-size="10px" fill="%23444">IMAGEM LÂMPADA</text></svg>') center/contain no-repeat;
     border-radius: 20px;
     display: flex;
     align-items: center;
