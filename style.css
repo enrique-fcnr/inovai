@@ -351,6 +351,115 @@ body {
     justify-content: center;
 }
 
+/* --- Why Choose Us Section --- */
+.why-choose-us {
+    padding: 100px 0;
+    text-align: center;
+    background-color: #000000;
+}
+
+.why-choose-us .subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.why-choose-us .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.why-choose-us .description {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-width: 50rem;
+    margin: 0 auto 3rem;
+}
+
+.why-choose-us .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.why-choose-us .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    background-color: var(--surface-color);
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    transition: transform 0.3s ease-out;
+}
+
+.why-choose-us .grid-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #d55f2c;
+}
+
+.why-choose-us .grid-item .icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    stroke-width: 2;
+}
+
+.why-choose-us .grid-item .divider {
+    width: 100%;
+    border-top: 1px solid #404040;
+    margin-bottom: 1rem;
+}
+
+.why-choose-us .grid-item h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+}
+
+.why-choose-us .grid-item p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.why-choose-us .contact-button-container {
+    margin-top: 4rem;
+}
+
+.why-choose-us .contact-button-container .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 13px 35px;
+    border: 2px solid var(--text-muted);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.why-choose-us .contact-button-container .btn-secondary:hover {
+    background-color: var(--text-muted);
+    color: var(--background-color);
+    border-color: var(--text-muted);
+}
+
+.why-choose-us .contact-button-container .btn-secondary .arrow-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
 /* --- Testimonials Section --- */
 .testimonials {
     padding: 100px 0;
@@ -505,9 +614,6 @@ body {
     .hero-content {
         text-align: center;
     }
-    .hero-content h2 {
-        font-size: 2.8rem;
-    }
     .hero-content p {
         margin: 0 auto 30px;
     }
@@ -531,5 +637,10 @@ body {
     .testimonial-cards {
         grid-template-columns: 1fr;
     }
-}
 
+    .why-choose-us .grid-item {
+        padding: 1.5rem;
+    }
+
+    
+}
