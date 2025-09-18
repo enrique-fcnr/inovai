@@ -696,8 +696,8 @@ body {
     }
     .hero-image {
         order: -1; /* Imagem vai para cima no mobile */
-        margin-bottom: 40px;
-        min-height: 300px;
+        margin-bottom: 100%;
+        min-height: 100%;
     }
     .hero-content {
         text-align: center;
